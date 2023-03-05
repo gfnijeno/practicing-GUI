@@ -1,0 +1,159 @@
+package practice;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JPanel;
+import java.awt.Color;
+import javax.swing.border.BevelBorder;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import java.awt.SystemColor;
+import javax.swing.JCheckBox;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+
+public class mark2 {
+
+	private JFrame frame;
+	private JTextField username;
+	private JPasswordField passwordField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void login() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					mark2 window = new mark2();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public mark2() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 693, 519);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\murei\\Downloads\\unnamed-removebg-preview.png"));
+		lblNewLabel.setBounds(359, -83, 395, 646);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("WELCOME");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setFont(new Font("Modern No. 20", Font.BOLD, 31));
+		lblNewLabel_1.setBounds(138, 10, 215, 96);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		JPanel panel = new JPanel();
+		panel.setForeground(Color.WHITE);
+		panel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		panel.setBackground(Color.BLACK);
+		panel.setBounds(44, 104, 395, 330);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_2_1 = new JLabel(" Password");
+		lblNewLabel_2_1.setForeground(SystemColor.textInactiveText);
+		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNewLabel_2_1.setBounds(46, 113, 124, 13);
+		panel.add(lblNewLabel_2_1);
+		
+		JLabel lblNewLabel_2 = new JLabel(" Username / Email");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNewLabel_2.setForeground(SystemColor.textInactiveText);
+		lblNewLabel_2.setBounds(46, 61, 144, 13);
+		panel.add(lblNewLabel_2);
+		
+		username = new JTextField();
+		username.setBounds(40, 59, 310, 19);
+		panel.add(username);
+		username.setColumns(10);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(40, 110, 310, 19);
+		panel.add(passwordField);
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Show Password");
+		chckbxNewCheckBox.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (chckbxNewCheckBox.isSelected()) {
+				      passwordField.setEchoChar((char)0); //password = JPasswordField
+				   } else {
+					   passwordField.setEchoChar('\u25cf');
+				   }
+			}
+		});
+		chckbxNewCheckBox.setBackground(SystemColor.desktop);
+		chckbxNewCheckBox.setForeground(SystemColor.text);
+		chckbxNewCheckBox.setBounds(38, 132, 138, 21);
+		panel.add(chckbxNewCheckBox);
+		
+		JButton btnNewButton = new JButton("Login");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(username.getText().equals("mureigne") && passwordField.getText().equals("markpakiss")) {
+					String url_open ="https://open.spotify.com/playlist/0mF2oAXwFBmRiwJjdzUkf6";
+					try {
+						java.awt.Desktop.getDesktop().browse(java.net.URI.create(url_open));
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				} else {
+					JOptionPane.showMessageDialog(btnNewButton, "Invalid Credentials. Hindi ikaw ang real gf :P");
+				}
+			}
+		});
+		btnNewButton.setBounds(85, 190, 85, 21);
+		panel.add(btnNewButton);
+		
+		JButton btnReset = new JButton("Reset");
+		btnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				username.setText(null);
+				passwordField.setText(null);
+			}
+		});
+		btnReset.setBounds(225, 190, 85, 21);
+		panel.add(btnReset);
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mark mk = new mark();
+				mk.frmBakaMarkLee.setVisible(true);
+				frame.dispose();
+			}
+		});
+		btnBack.setBounds(156, 230, 85, 21);
+		panel.add(btnBack);
+	}
+}
