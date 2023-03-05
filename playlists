@@ -1,0 +1,148 @@
+package practice;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.Font;
+import javax.swing.JRadioButton;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.Color;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.awt.event.ActionEvent;
+
+public class playlists {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void list() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					playlists window = new playlists();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public playlists() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 719, 519);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Go back");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\murei\\Downloads\\Ezj_y6RVUAAnd-_-removebg-preview.png"));
+		lblNewLabel.setBounds(224, 20, 481, 462);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Choose a Spotify Playlist");
+		lblNewLabel_1.setFont(new Font("Modern No. 20", Font.BOLD, 30));
+		lblNewLabel_1.setBounds(25, 20, 325, 84);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setForeground(Color.WHITE);
+		comboBox.setBackground(Color.BLACK);
+		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"- Choose here -", "amoy hindi na makakaahon kay mark lee playlist", "mark lee ano ba tayo?", "mark lee vibes <3", "mark lee's recommendations", "mark lee podcast", "marklyyy", "child"}));
+		comboBox.setBounds(25, 101, 305, 25);
+		frame.getContentPane().add(comboBox);
+		
+		JButton btnNewButton = new JButton("Select");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(comboBox.getSelectedItem().equals("amoy hindi na makakaahon kay mark lee playlist")) {
+					String url_open ="https://open.spotify.com/playlist/0mF2oAXwFBmRiwJjdzUkf6";
+					try {
+						java.awt.Desktop.getDesktop().browse(java.net.URI.create(url_open));
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} 
+				} else if(comboBox.getSelectedItem().equals("mark lee ano ba tayo?")) {
+					String url_open ="https://open.spotify.com/playlist/3Mp8iDAlBnXkDgJVW0FJzQ";
+					try {
+						java.awt.Desktop.getDesktop().browse(java.net.URI.create(url_open));
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				} else if(comboBox.getSelectedItem().equals("mark lee vibes <3")) {
+					String url_open ="https://open.spotify.com/playlist/4pYHlygfPCEfEWuYOEbl5z";
+					try {
+						java.awt.Desktop.getDesktop().browse(java.net.URI.create(url_open));
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				} else if(comboBox.getSelectedItem().equals("mark lee's recommendations")) {
+					String url_open ="https://open.spotify.com/playlist/1t5tim7FMxdyr13HiBhdQK";
+					try {
+						java.awt.Desktop.getDesktop().browse(java.net.URI.create(url_open));
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				} else if(comboBox.getSelectedItem().equals("mark lee podcast")) {
+					String url_open ="https://open.spotify.com/show/3JLrWNV1cQ1k7tkTNO71QH";
+					try {
+						java.awt.Desktop.getDesktop().browse(java.net.URI.create(url_open));
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				} else if(comboBox.getSelectedItem().equals("marklyyy")) {
+					String url_open ="https://open.spotify.com/playlist/7yDceXdX48dnHkayFRIJG4";
+					try {
+						java.awt.Desktop.getDesktop().browse(java.net.URI.create(url_open));
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				} else if(comboBox.getSelectedItem().equals("child")) {
+					String url_open ="https://open.spotify.com/album/4XGMXl3AMjb11YIKdeujj1?highlight=spotify:track:5HaYRuf3zAfCb8RSO9LLea";
+					try {
+						java.awt.Desktop.getDesktop().browse(java.net.URI.create(url_open));
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+			}
+		});
+		btnNewButton.setBounds(48, 293, 102, 21);
+		frame.getContentPane().add(btnNewButton);
+		
+		JButton btnGoBack = new JButton("Go back");
+		btnGoBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mark2 mk2 = new mark2();
+				mk2.frame1.setVisible(true);
+				frame.dispose();
+			}
+		});
+		btnGoBack.setBounds(198, 293, 102, 21);
+		frame.getContentPane().add(btnGoBack);
+	}
+}
