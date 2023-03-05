@@ -1,0 +1,90 @@
+package practice;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JScrollBar;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.Color;
+import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class mark {
+
+	public JFrame frmBakaMarkLee;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					mark window = new mark();
+					window.frmBakaMarkLee.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public mark() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmBakaMarkLee = new JFrame();
+		frmBakaMarkLee.getContentPane().setBackground(new Color(0, 0, 0));
+		frmBakaMarkLee.setTitle("baka mark lee yan");
+		frmBakaMarkLee.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\murei\\Downloads\\Ezj_y6RVUAAnd-_-removebg-preview.png"));
+		frmBakaMarkLee.setBounds(100, 100, 823, 524);
+		frmBakaMarkLee.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmBakaMarkLee.getContentPane().setLayout(null);
+		
+		JButton btnNewButton = new JButton("START");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 27));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mark2 nw = new mark2();
+				nw.login();
+				frmBakaMarkLee.dispose();
+			}
+		});
+		btnNewButton.setBounds(323, 348, 163, 32);
+		frmBakaMarkLee.getContentPane().add(btnNewButton);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\murei\\Downloads\\0544cf43564fd84cceb700a053b2454c-removebg-preview.png"));
+		lblNewLabel.setBounds(-45, -7, 400, 491);
+		frmBakaMarkLee.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\murei\\Downloads\\Fb5i68MakAEl3Lr-removebg-preview.png"));
+		lblNewLabel_1.setBounds(153, 0, 503, 477);
+		frmBakaMarkLee.getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\murei\\Downloads\\EnTJ8rMUcAEZY_l-removebg-preview.png"));
+		lblNewLabel_2.setBounds(468, 34, 391, 453);
+		frmBakaMarkLee.getContentPane().add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("Mark Lee");
+		lblNewLabel_3.setForeground(new Color(255, 255, 255));
+		lblNewLabel_3.setFont(new Font("Modern No. 20", Font.BOLD, 87));
+		lblNewLabel_3.setBounds(65, 0, 448, 86);
+		frmBakaMarkLee.getContentPane().add(lblNewLabel_3);
+	}
+}
